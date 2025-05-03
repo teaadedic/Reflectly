@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reflectly.Model
+namespace Reflectly.Services
 {
-    internal class Class1
+    public interface IJournalEntryService
     {
+        List<Model.JournalEntry> Get();
     }
 }
+
+

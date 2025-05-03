@@ -1,11 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Reflectly.Services;
+using Reflectly.Services.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddTransient<IJournalEntryService, JournalEntryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ReflectlyContext>(options =>
+    options.UseSqlServer(connectionString));
+
 
 var app = builder.Build();
 

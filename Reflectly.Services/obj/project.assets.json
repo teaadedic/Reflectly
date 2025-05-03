@@ -782,6 +782,16 @@
             "rid": "win"
           }
         }
+      },
+      "Reflectly.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Reflectly.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Reflectly.Model.dll": {}
+        }
       }
     }
   },
@@ -2003,6 +2013,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Reflectly.Model/1.0.0": {
+      "type": "project",
+      "path": "../Reflectly.Model/Reflectly.Model.csproj",
+      "msbuildProject": "../Reflectly.Model/Reflectly.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2010,7 +2025,8 @@
       "Microsoft.EntityFrameworkCore >= 6.0.25",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.25",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.25",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.25"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.25",
+      "Reflectly.Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2039,7 +2055,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ajlia\\Documents\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj": {
+              "projectPath": "C:\\Users\\ajlia\\Documents\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

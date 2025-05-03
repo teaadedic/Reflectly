@@ -12,3 +12,6 @@ C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\obj\Debug\net6.0\ref\Reflectly.Services.dll
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.runtimeconfig.json
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.genruntimeconfig.cache
+C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.dll
+C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\ajlia\Documents\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.CopyComplete
