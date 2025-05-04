@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Reflectly.Model.Requests;
 using Reflectly.Services;
+using Reflectly.Model;
 
 
 namespace Reflectly.Controllers
@@ -19,9 +21,22 @@ namespace Reflectly.Controllers
             }
 
             [HttpGet()]
-            public IEnumerable<Model.JournalEntry> Get()
+            public async Task<IEnumerable<Model.JournalEntry>> Get()
             {
-                return  _service.Get();
+                return await _service.Get();
             }
+
+        //Dodati u User Controller
+        //[HttpGet()]
+        //public Model.JournalEntry Insert(JournalEntryInsertRequest request)
+        //{
+        //    return _service.Insert(request);
+        //}
+        [HttpPut("{id}")]
+        public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
+        {
+            return _service.Update(id, request);
+        }
+
         }
 }

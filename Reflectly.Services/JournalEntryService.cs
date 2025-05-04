@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Reflectly.Model;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Reflectly.Services
 {
@@ -13,31 +15,36 @@ namespace Reflectly.Services
 
         ReflectlyContext _context;
 
-        public JournalEntryService(ReflectlyContext context)
+        public IMapper _mapper {  get; set; }
+
+        public JournalEntryService(ReflectlyContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public List<Model.JournalEntry> Get()
+        public async Task<List<Model.JournalEntry>> Get()
         {
-            var entitnyList = _context.JournalEntries.ToList();
+            var entitnyList = await _context.JournalEntries.ToListAsync();
 
-            var list= new List<Model.JournalEntry>();
-            foreach (var journalEntry in entitnyList)
-            {
-                list.Add(new Model.JournalEntry() 
-                {
-                     UserId = journalEntry.UserId,
-                     JournalEntryId = journalEntry.JournalEntryId,
-                     PromptText = journalEntry.PromptText, 
-                     ResponseText = journalEntry.ResponseText,
-                     Timestamp = journalEntry.Timestamp,
-                     LinkedMoodEntryId = journalEntry.LinkedMoodEntryId,
+            //var list= new List<Model.JournalEntry>();
+            //foreach (var journalEntry in entitnyList)
+            //{
+            //    list.Add(new Model.JournalEntry() 
+            //    {
+            //         UserId = journalEntry.UserId,
+            //         JournalEntryId = journalEntry.JournalEntryId,
+            //         PromptText = journalEntry.PromptText, 
+            //         ResponseText = journalEntry.ResponseText,
+            //         Timestamp = journalEntry.Timestamp,
+            //         LinkedMoodEntryId = journalEntry.LinkedMoodEntryId,
 
-                });
-            }
+            //    });
+            //}
 
-            return list;
+            //return list;
+
+            return _mapper.Map<List<Model.JournalEntry>>(entitnyList);
         }
 
     }

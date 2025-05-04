@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Reflectly.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e6de7a74726cc82c61c373ffab2dacaddb52310")]
 [assembly: System.Reflection.AssemblyProductAttribute("Reflectly.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Reflectly.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

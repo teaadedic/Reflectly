@@ -10,3 +10,16 @@ C:\Users\ajlia\Documents\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Mo
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Model\obj\Debug\net6.0\refint\Reflectly.Model.dll
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.pdb
 C:\Users\ajlia\Documents\Reflectly\Reflectly.Model\obj\Debug\net6.0\ref\Reflectly.Model.dll
+C:\Users\Tea\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.deps.json
+C:\Users\Tea\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.dll
+C:\Users\Tea\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.csproj.AssemblyReference.cache
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.AssemblyInfoInputs.cache
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.AssemblyInfo.cs
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.csproj.CoreCompileInputs.cache
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.sourcelink.json
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.dll
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\refint\Reflectly.Model.dll
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\Tea\Reflectly\Reflectly.Model\obj\Debug\net6.0\ref\Reflectly.Model.dll
