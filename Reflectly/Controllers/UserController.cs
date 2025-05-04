@@ -27,7 +27,7 @@ namespace Reflectly.Controllers
                 return await _service.Get();
             }
 
-            [HttpGet()]
+            [HttpPost()]
             public Model.User Insert(UserInsertRequest request)
             {
                 return _service.Insert(request);

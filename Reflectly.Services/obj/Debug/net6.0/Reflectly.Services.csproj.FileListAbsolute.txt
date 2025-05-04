@@ -33,3 +33,20 @@ C:\Users\Tea\Reflectly\Reflectly.Services\obj\Debug\net6.0\refint\Reflectly.Serv
 C:\Users\Tea\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.pdb
 C:\Users\Tea\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.genruntimeconfig.cache
 C:\Users\Tea\Reflectly\Reflectly.Services\obj\Debug\net6.0\ref\Reflectly.Services.dll
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.deps.json
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.runtimeconfig.json
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.dll
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.pdb
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.dll
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.AssemblyReference.cache
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.AssemblyInfoInputs.cache
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.AssemblyInfo.cs
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.CoreCompileInputs.cache
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.CopyComplete
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.dll
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\refint\Reflectly.Services.dll
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.pdb
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.genruntimeconfig.cache
+C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Services\obj\Debug\net6.0\ref\Reflectly.Services.dll

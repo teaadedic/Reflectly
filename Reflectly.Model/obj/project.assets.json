@@ -312,24 +312,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tea\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ajlia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
+      "projectUniqueName": "C:\\Users\\ajlia\\OneDrive\\Radna površina\\software\\video\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
       "projectName": "Reflectly.Model",
-      "projectPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
-      "packagesPath": "C:\\Users\\Tea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\obj\\",
+      "projectPath": "C:\\Users\\ajlia\\OneDrive\\Radna površina\\software\\video\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
+      "packagesPath": "C:\\Users\\ajlia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ajlia\\OneDrive\\Radna površina\\software\\video\\Reflectly\\Reflectly.Model\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Tea\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ajlia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -349,13 +344,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net6.0": {
@@ -377,26 +366,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.36, 6.0.36]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.36, 6.0.36]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.36, 6.0.36]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

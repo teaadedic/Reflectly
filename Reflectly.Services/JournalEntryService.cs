@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Reflectly.Model;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Reflectly.Model.Requests;
 
 namespace Reflectly.Services
 {
@@ -47,6 +48,10 @@ namespace Reflectly.Services
             return _mapper.Map<List<Model.JournalEntry>>(entitnyList);
         }
 
+        public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
  

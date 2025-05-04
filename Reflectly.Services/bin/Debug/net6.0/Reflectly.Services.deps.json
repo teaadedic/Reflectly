@@ -520,10 +520,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1"
         },
         "runtime": {
-          "Reflectly.Model.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Reflectly.Model.dll": {}
         }
       }
     }

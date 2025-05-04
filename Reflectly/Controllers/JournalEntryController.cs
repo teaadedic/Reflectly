@@ -12,9 +12,9 @@ namespace Reflectly.Controllers
         public class JournalEntryController : ControllerBase
     {
             protected readonly IJournalEntryService _service;
-            protected readonly ILogger<WeatherForecastController> _logger;
+            protected readonly ILogger<JournalEntryController> _logger;
 
-            public JournalEntryController(ILogger<WeatherForecastController> logger, IJournalEntryService service)
+            public JournalEntryController(ILogger<JournalEntryController> logger, IJournalEntryService service)
             {
                 _logger = logger;
                 _service = service;
@@ -26,12 +26,13 @@ namespace Reflectly.Controllers
                 return await _service.Get();
             }
 
-        //Dodati u User Controller
+        
         //[HttpGet()]
         //public Model.JournalEntry Insert(JournalEntryInsertRequest request)
         //{
         //    return _service.Insert(request);
         //}
+
         [HttpPut("{id}")]
         public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
         {
