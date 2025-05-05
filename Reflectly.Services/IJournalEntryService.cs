@@ -10,6 +10,8 @@ namespace Reflectly.Services
 {
     public interface IJournalEntryService
     {
+        Task<JournalEntry> Submit(int id);
+
         Task<List<Model.JournalEntry>> Get();
         //JournalEntry Insert(JournalEntryInsertRequest request);
         JournalEntry Update(int id, JournalEntryUpdateRequest request);
