@@ -351,3 +351,8 @@ MigrationBackup/
 
 # Ignore the .env file
 .env
+
+# Ignore Visual Studio, build files, and binaries
+.vs/
+obj/
+bin/
