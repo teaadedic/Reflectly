@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IJournalEntryService, JournalEntryService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IMoodEntryService, MoodEntryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
