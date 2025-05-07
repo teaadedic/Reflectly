@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Reflectly.Services;
 using Reflectly.Services.Database;
-using Reflectly.Services.JournalEntryStateMachine;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IJournalEntryService, JournalEntryService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IMoodEntryService, MoodEntryService>();
-
-builder.Services.AddTransient<BaseState>();
-builder.Services.AddTransient<InitialJournalEntryState>();
-builder.Services.AddTransient<DraftJournalEntryState>();
-builder.Services.AddTransient<SubmitJournalEntryState>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

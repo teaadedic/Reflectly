@@ -8,8 +8,6 @@ using Reflectly.Model;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Reflectly.Model.Requests;
-using Reflectly.Services.JournalEntryStateMachine;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Reflectly.Services
 {
@@ -20,13 +18,10 @@ namespace Reflectly.Services
 
         public IMapper _mapper {  get; set; }
 
-        public BaseState _baseState { get; set; }
-
-        public JournalEntryService(BaseState baseState, ReflectlyContext context, IMapper mapper) : base(context, mapper) 
+        public JournalEntryService(ReflectlyContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _baseState = baseState;
         }
 
         public async Task<List<Model.JournalEntry>> Get()
@@ -53,35 +48,10 @@ namespace Reflectly.Services
             return _mapper.Map<List<Model.JournalEntry>>(entitnyList);
         }
 
-        public override Task<Model.JournalEntry> Insert(JournalEntryInsertRequest insert)
-        {
-            var state = _baseState.CreateState("initial");
-
-            return state.Insert(insert);
-        }
-
-        public override async Task<Model.JournalEntry> Update(int id, JournalEntryUpdateRequest update)
-        {
-            var entity = await _context.JournalEntries.FindAsync(id);
-
-            var state = _baseState.CreateState(entity.StateMachine);
-            
-            return await state.Update(id, update);
-        }
-
-        public async Task<Model.JournalEntry> Submit(int id)
-        {
-            var entity = await _context.JournalEntries.FindAsync(id);
-
-            var state = _baseState.CreateState(entity.StateMachine);
-
-            return await state.Submit(id);
-        }
-
-        /*public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
+        public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
         {
             throw new NotImplementedException();
-        }*/
+        }
     }
 }
  

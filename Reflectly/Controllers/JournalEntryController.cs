@@ -26,25 +26,18 @@ namespace Reflectly.Controllers
                 return await _service.Get();
             }
 
-
+        
         //[HttpGet()]
         //public Model.JournalEntry Insert(JournalEntryInsertRequest request)
         //{
         //    return _service.Insert(request);
         //}
 
-        [HttpPut("{id}/activate")]
-        public virtual async Task<Model.JournalEntry> Submit(int id)
-        {
-            return await (_service as IJournalEntryService).Submit(id);
-        }
-
-
-        /*[HttpPut("{id}")]
+        [HttpPut("{id}")]
         public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
         {
             return _service.Update(id, request);
-        }*/
+        }
 
-    }
+        }
 }

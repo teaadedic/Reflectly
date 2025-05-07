@@ -19,7 +19,6 @@ namespace Reflectly.Services.Database
 
         public virtual MoodEntry? LinkedMoodEntry { get; set; }
         public virtual User User { get; set; } = null!;
-        public string? StateMachine {  get; set; }
 
         public virtual ICollection<MoodLabel> MoodLabels { get; set; }
     }
