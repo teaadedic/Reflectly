@@ -14,4 +14,5 @@ namespace Reflectly.Model.Requests
         public DateTime? Timestamp { get; set; }
         public Guid? LinkedMoodEntryId { get; set; }
     }
+    
 }

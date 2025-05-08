@@ -9,35 +9,16 @@ namespace Reflectly.Controllers
         [ApiController]
         [Route("[controller]")]
 
-        public class UserController : ControllerBase
+        public class UserController : BaseCRUDController<Model.User, Model.SearchObjects.BaseSearchObject, Model.Requests.UserInsertRequest, Model.Requests.UserUpdateRequest>
         {
-            protected readonly IUserService _service;
-            protected readonly ILogger<WeatherForecastController> _logger;
+           
 
-            public UserController(ILogger<WeatherForecastController> logger, IUserService service)
+            public UserController(ILogger<BaseController<User, Model.SearchObjects.BaseSearchObject>> logger, IUserService service): base(logger, service)
             {
-                _logger = logger;
-                _service = service;
+                
             }
 
-            [HttpGet()]
-
-            public async Task<IEnumerable<Model.User>> Get()
-            {
-                return await _service.Get();
-            }
-
-            [HttpPost()]
-            public Model.User Insert(UserInsertRequest request)
-            {
-                return _service.Insert(request);
-            }
-
-            [HttpPut("{id}")]
-            public Model.User Update(int id, UserUpdateRequest request)
-            {
-                return _service.Update(id, request);
-            }
+          
 
         }
 }

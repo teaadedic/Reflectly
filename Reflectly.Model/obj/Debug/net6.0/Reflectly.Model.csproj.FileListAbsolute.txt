@@ -35,3 +35,15 @@ C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Model
 C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Model\obj\Debug\net6.0\refint\Reflectly.Model.dll
 C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.pdb
 C:\Users\ajlia\OneDrive\Radna površina\software\video\Reflectly\Reflectly.Model\obj\Debug\net6.0\ref\Reflectly.Model.dll
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.deps.json
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.dll
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\bin\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.AssemblyInfo.cs
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.dll
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\refint\Reflectly.Model.dll
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\Reflectly.Model.pdb
+C:\Users\PC\Desktop\Reflectly\Reflectly.Model\obj\Debug\net6.0\ref\Reflectly.Model.dll

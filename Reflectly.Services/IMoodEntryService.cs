@@ -1,4 +1,5 @@
-﻿using Reflectly.Model.SearchObjects;
+﻿using Reflectly.Model.Requests;
+using Reflectly.Model.SearchObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace Reflectly.Services
 {
-    public interface IMoodEntryService : IService<Model.MoodEntry, MoodEntrySearchObject>
+    public interface IMoodEntryService : ICRUDService<Model.MoodEntry, MoodEntrySearchObject,MoodEntryInsertRequest, MoodEntryUpdateRequest>
     {
+        
     }
+    
 }

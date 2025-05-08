@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Reflectly.Services
 {
-    public interface IUserService
+    public interface IUserService:ICRUDService<Model.User, Model.SearchObjects.BaseSearchObject, Model.Requests.UserInsertRequest, Model.Requests.UserUpdateRequest>
     {
-        Task<List<Model.User>> Get();
         Model.User Insert(UserInsertRequest request);
         Model.User Update(int id, UserUpdateRequest request);
     }
 }
+
 
 

@@ -34,9 +34,10 @@ namespace Reflectly.Services
             result.Count = await query.CountAsync();
 
             query = AddFilter(query, search);
+            query = AddInclude(query, search);
 
 
-            if(search?.Page.HasValue == true && search?.PageSize.HasValue == true)
+            if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
             {
                 query = query.Take(search.PageSize.Value).Skip(search.Page.Value*search.PageSize.Value); 
             }
@@ -47,7 +48,10 @@ namespace Reflectly.Services
             result.Result = tmp;
             return result;
         }
-
+        public virtual IQueryable<TDb> AddInclude(IQueryable<TDb> query, TSearch? search = null)
+        {
+            return query;
+        }
 
         public virtual IQueryable<TDb> AddFilter(IQueryable<TDb>  query, TSearch? search = null)
         {

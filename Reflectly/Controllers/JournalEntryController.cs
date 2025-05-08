@@ -7,37 +7,16 @@ using Reflectly.Model;
 namespace Reflectly.Controllers
 {
     [ApiController]
-        [Route("[controller]")]
+    [Route("[controller]")]
 
-        public class JournalEntryController : ControllerBase
+    public class JournalEntryController : BaseCRUDController<Model.JournalEntry, Model.SearchObjects.JournalEntrySearchObject, Model.Requests.JournalEntryInsertRequest, Model.Requests.JournalEntryUpdateRequest>
     {
-            protected readonly IJournalEntryService _service;
-            protected readonly ILogger<JournalEntryController> _logger;
 
-            public JournalEntryController(ILogger<JournalEntryController> logger, IJournalEntryService service)
-            {
-                _logger = logger;
-                _service = service;
-            }
 
-            [HttpGet()]
-            public async Task<IEnumerable<Model.JournalEntry>> Get()
-            {
-                return await _service.Get();
-            }
-
-        
-        //[HttpGet()]
-        //public Model.JournalEntry Insert(JournalEntryInsertRequest request)
-        //{
-        //    return _service.Insert(request);
-        //}
-
-        [HttpPut("{id}")]
-        public Model.JournalEntry Update(int id, JournalEntryUpdateRequest request)
+        public JournalEntryController(ILogger<BaseController<JournalEntry, Model.SearchObjects.JournalEntrySearchObject>> logger, IJournalEntryService service) : base(logger, service)
         {
-            return _service.Update(id, request);
-        }
 
         }
+
+    }
 }

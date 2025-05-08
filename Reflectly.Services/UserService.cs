@@ -10,10 +10,12 @@ using Reflectly.Model.Requests;
 using System.Security.Cryptography;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using Reflectly.Model.SearchObjects;
 
 namespace Reflectly.Services
 {
-    public class UserService : IUserService
+    
+    public class UserService : BaseCRUDService<Model.User, Database.User, BaseSearchObject, UserInsertRequest, UserUpdateRequest>, IUserService
     {
 
         ReflectlyContext _context;
@@ -21,33 +23,15 @@ namespace Reflectly.Services
         public IMapper _mapper { get; set; }
 
         public UserService(ReflectlyContext context, IMapper mapper)
+            :base (context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
+           
         }
-
-        public async Task<List<Model.User>> Get()
+       
+        public override async Task BeforeInsesrt(Database.User entity, UserInsertRequest insert)
         {
-            var entitnyList = await _context.Users.ToListAsync();
-
-            
-
-            return _mapper.Map<List<Model.User>>(entitnyList);
-        }
-
-
-        public Model.User Insert(UserInsertRequest request)
-        {
-            var entity = new Services.Database.User();
-            _mapper.Map(request, entity);
-
             entity.PasswordSalt = GenerateSalt();
-            entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
-
-            _context.Users.Add(entity);
-            _context.SaveChanges();
-
-            return _mapper.Map<Model.User>(entity);
+            entity.PasswordHash = GenerateHash(entity.PasswordSalt, insert.Password);
         }
 
         public static string GenerateSalt()
@@ -81,6 +65,16 @@ namespace Reflectly.Services
 
             _context.SaveChanges();
             return _mapper.Map<Model.User>(entity);
+        }
+
+        public Task<List<Model.User>> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        Model.User IUserService.Insert(UserInsertRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

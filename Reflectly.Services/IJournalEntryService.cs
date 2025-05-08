@@ -1,5 +1,7 @@
 ﻿using Reflectly.Model;
 using Reflectly.Model.Requests;
+using Reflectly.Model.SearchObjects;
+using Reflectly.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Reflectly.Services
 {
-    public interface IJournalEntryService
+    public interface IJournalEntryService: ICRUDService<JournalEntry,JournalEntrySearchObject, JournalEntryInsertRequest, JournalEntryUpdateRequest>
     {
-        Task<List<Model.JournalEntry>> Get();
-        //JournalEntry Insert(JournalEntryInsertRequest request);
-        JournalEntry Update(int id, JournalEntryUpdateRequest request);
+        
     }
 }
+
+
 
 
