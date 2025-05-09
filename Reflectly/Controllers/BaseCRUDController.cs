@@ -10,7 +10,7 @@ namespace Reflectly.Controllers
     [Route("[controller]")]
     public class BaseCRUDController<T, TSearch, TInsert, TUpdate> : BaseController<T, TSearch> where T : class where TSearch : class
     {
-        private readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service;
+        public readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service;
         private readonly ILogger<BaseController<T, TSearch>> _logger;
 
         public BaseCRUDController(ILogger<BaseController<T, TSearch>> logger, ICRUDService<T, TSearch, TInsert, TUpdate> service)

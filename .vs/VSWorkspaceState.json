@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Reflectly",
-    "\\Reflectly.Model",
     "\\Reflectly.Services",
-    "\\Reflectly.Services\\Database"
+    "\\Reflectly.Services\\JournalEntryStateMachine"
   ],
-  "SelectedNode": "\\Reflectly.Model",
+  "SelectedNode": "\\Reflectly\\Reflectly.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -18,5 +18,11 @@ namespace Reflectly.Controllers
 
         }
 
+        [HttpPut("{id}/activate")]
+        public virtual async Task<Model.JournalEntry> Submit(int id)
+        {
+            return await (_service as IJournalEntryService).Submit(id);
+        }
+
     }
 }
