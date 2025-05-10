@@ -29,21 +29,31 @@ namespace Reflectly.Services
         }
 
         //Ovo ne radi ni sa int id ni sa Guid veze se za IJournalEntryService
-        /*public override async Task<Model.JournalEntry> Update(int id, JournalEntryUpdateRequest update)
+        public async Task<Model.JournalEntry> Update(Guid id, JournalEntryUpdateRequest update)
         {
             var entity = await _context.JournalEntries.FindAsync(id);
 
             var state = _baseState.CreateState(entity.StateMachine);
             return await state.Update(id, update);
-        }*/
-
-        public async Task<Model.JournalEntry> Submit(int id)
+        }
+         
+        public async Task<Model.JournalEntry> Submit(Guid id)
         {
             var entity = await _context.JournalEntries.FindAsync(id);
 
             var state = _baseState.CreateState(entity.StateMachine);
 
             return await state.Submit(id);
+        }
+
+        public Task<List<Model.JournalEntry>> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        Model.JournalEntry IJournalEntryService.Insert(JournalEntryInsertRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

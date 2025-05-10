@@ -8,7 +8,7 @@ namespace Reflectly.Model.Requests
 {
     public class MoodEntryInsertRequest
     {
-        
+        public string UserId { get; set; }
         public string MoodEmoji { get; set; } = null!;
         public string? MoodText { get; set; }
         public DateTime? Timestamp { get; set; }

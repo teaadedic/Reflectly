@@ -20,7 +20,7 @@ namespace Reflectly.Services.JournalEntryStateMachine
         }
         public override async Task<JournalEntry> Insert(JournalEntryInsertRequest request)
         {
-            //TODO: ED CALL
+            //TODO: EF CALL
             var set = _context.Set<Database.JournalEntry>();
 
             var entity = _mapper.Map<Database.JournalEntry>(request);

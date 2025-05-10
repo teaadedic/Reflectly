@@ -11,6 +11,6 @@ namespace Reflectly.Services
     {
         Task<PagedResult<T>> Get(TSearch search = null);
 
-        Task<T> GetById(int id);
+        Task<T> GetById(Guid id);
     }
 }

@@ -76,5 +76,10 @@ namespace Reflectly.Services
         {
             throw new NotImplementedException();
         }
+
+        Model.User IUserService.Update(Guid id, UserUpdateRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

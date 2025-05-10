@@ -81,6 +81,10 @@ namespace Reflectly.Services.Database
                     .HasColumnName("timestamp")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.StateMachine)
+                    .HasColumnType("text")
+                    .HasColumnName("state_machine_status");
+
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
                 entity.HasOne(d => d.LinkedMoodEntry)

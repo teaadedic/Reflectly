@@ -10,7 +10,7 @@ namespace Reflectly.Services
     public interface IUserService:ICRUDService<Model.User, Model.SearchObjects.BaseSearchObject, Model.Requests.UserInsertRequest, Model.Requests.UserUpdateRequest>
     {
         Model.User Insert(UserInsertRequest request);
-        Model.User Update(int id, UserUpdateRequest request);
+        Model.User Update(Guid id, UserUpdateRequest request);
     }
 }
 

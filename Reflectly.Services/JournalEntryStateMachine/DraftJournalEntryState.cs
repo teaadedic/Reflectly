@@ -19,7 +19,7 @@ namespace Reflectly.Services.JournalEntryStateMachine
         {
 
         }
-        public override async Task<JournalEntry> Update(int id, JournalEntryUpdateRequest update)
+        public async Task<JournalEntry> Update(Guid id, JournalEntryUpdateRequest update)
         {
             var set = _context.Set<Database.JournalEntry>();
 
@@ -30,7 +30,7 @@ namespace Reflectly.Services.JournalEntryStateMachine
             await _context.SaveChangesAsync();
             return _mapper.Map<Model.JournalEntry>(entity);
         }
-        public override async Task<JournalEntry> Submit(int id)
+        public async Task<JournalEntry> Submit(Guid id)
         {
             var set = _context.Set<Database.JournalEntry>();
 

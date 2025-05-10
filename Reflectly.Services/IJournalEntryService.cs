@@ -12,12 +12,12 @@ namespace Reflectly.Services
 {
     public interface IJournalEntryService: ICRUDService<JournalEntry,JournalEntrySearchObject, JournalEntryInsertRequest, JournalEntryUpdateRequest>
     {
-        Task<JournalEntry> Submit(int id);
+        Task<JournalEntry> Submit(Guid id);
         //Veze se sa ovim
-        //Task<JournalEntry> Update(int id, JournalEntryUpdateRequest update); 
+        Task<JournalEntry> Update(Guid id, JournalEntryUpdateRequest update); 
 
-        //Task<List<Model.JournalEntry>> Get();
-        //JournalEntry Insert(JournalEntryInsertRequest request);
+        Task<List<Model.JournalEntry>> Get();
+        JournalEntry Insert(JournalEntryInsertRequest request);
     }
 }
 

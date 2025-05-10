@@ -58,9 +58,9 @@ namespace Reflectly.Services
             return query;
         }
 
-        public virtual async Task<T> GetById(int id)
+        public virtual async Task<T> GetById(Guid id)
         {
-            var entity = await _context.Set<TDb>().FindAsync();
+            var entity = await _context.Set<TDb>().FindAsync(id);
 
             return _mapper.Map<T>(entity);
         }

@@ -14,8 +14,11 @@ namespace Reflectly.Services.JournalEntryStateMachine
     public class BaseState
     {
         protected ReflectlyContext _context;
+
         protected IMapper _mapper { get; set; }
+
         public IServiceProvider _serviceProvider { get; set; }
+
         public BaseState(IServiceProvider serviceProvder,ReflectlyContext context, IMapper mapper)
         {
             _context = context;
@@ -27,21 +30,21 @@ namespace Reflectly.Services.JournalEntryStateMachine
             throw new Exception("Not allowed");
         }
 
-        public virtual Task<Model.JournalEntry> Update(int id,JournalEntryUpdateRequest request)
+        public virtual Task<Model.JournalEntry> Update(Guid id,JournalEntryUpdateRequest request)
         {
             throw new Exception("Not allowed");
         }
 
-        public virtual Task<Model.JournalEntry> Submit(int id)
+        public virtual Task<Model.JournalEntry> Submit(Guid id)
         {
             throw new Exception("Not allowed");
         }
-        public virtual Task<Model.JournalEntry> Archive(int id)
+        public virtual Task<Model.JournalEntry> Archive(Guid id)
         {
             throw new Exception("Not allowed");
         }
 
-        public virtual Task<Model.JournalEntry> Delete(int id)
+        public virtual Task<Model.JournalEntry> Delete(Guid id)
         {
             throw new Exception("Not allowed");
         }

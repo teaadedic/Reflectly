@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Reflectly.Services.Database;
 
@@ -11,9 +12,10 @@ using Reflectly.Services.Database;
 namespace Reflectly.Services.Migrations
 {
     [DbContext(typeof(ReflectlyContext))]
-    partial class ReflectlyContextModelSnapshot : ModelSnapshot
+    [Migration("20250510162416_AddStateMachineToJournalEntry")]
+    partial class AddStateMachineToJournalEntry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
