@@ -28,7 +28,7 @@ namespace Reflectly.Services
             return state.Insert(insert);
         }
 
-        //Ovo ne radi ni sa int id ni sa Guid veze se za IJournalEntryService
+        
         public async Task<Model.JournalEntry> Update(Guid id, JournalEntryUpdateRequest update)
         {
             var entity = await _context.JournalEntries.FindAsync(id);
@@ -46,15 +46,33 @@ namespace Reflectly.Services
             return await state.Submit(id);
         }
 
-        public Task<List<Model.JournalEntry>> Get()
+        public async Task<Model.JournalEntry> Archive(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _context.JournalEntries.FindAsync(id);
+
+            var state = _baseState.CreateState(entity.StateMachine);
+
+            return await state.Archive(id);
         }
 
-        Model.JournalEntry IJournalEntryService.Insert(JournalEntryInsertRequest request)
+        public async Task<List<string>> AllowedActions(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _context.JournalEntries.FindAsync(id);
+
+            var state = _baseState.CreateState(entity?.StateMachine ?? "initial");
+
+            return await state.AllowedActions();
         }
+
+        //public Task<List<Model.JournalEntry>> Get()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //Model.JournalEntry IJournalEntryService.Insert(JournalEntryInsertRequest request)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
  

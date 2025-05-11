@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Reflectly.Model;
 using Reflectly.Model.Requests;
 using Reflectly.Services.Database;
 using System;
@@ -27,26 +28,27 @@ namespace Reflectly.Services.JournalEntryStateMachine
         }
         public virtual Task<Model.JournalEntry> Insert(JournalEntryInsertRequest request)
         {
-            throw new Exception("Not allowed");
+            throw new UserException("Not allowed");
         }
 
         public virtual Task<Model.JournalEntry> Update(Guid id,JournalEntryUpdateRequest request)
         {
-            throw new Exception("Not allowed");
+            throw new UserException("Not allowed");
         }
 
         public virtual Task<Model.JournalEntry> Submit(Guid id)
         {
-            throw new Exception("Not allowed");
+            throw new UserException("Not allowed");
         }
+
         public virtual Task<Model.JournalEntry> Archive(Guid id)
         {
-            throw new Exception("Not allowed");
+            throw new UserException("Not allowed");
         }
 
         public virtual Task<Model.JournalEntry> Delete(Guid id)
         {
-            throw new Exception("Not allowed");
+            throw new UserException("Not allowed");
         }
 
         public BaseState CreateState(string stateName)
@@ -54,6 +56,7 @@ namespace Reflectly.Services.JournalEntryStateMachine
             switch (stateName)
             {
                 case "initial":
+                case null:
                     return _serviceProvider.GetService<InitialJournalEntryState>();
                     break;
                 case "draft":
@@ -63,8 +66,14 @@ namespace Reflectly.Services.JournalEntryStateMachine
                     return _serviceProvider.GetService<SubmitJournalEntryState>();
                     break;
                 default:
-                    throw new Exception("Not allowed");
+                    throw new UserException("Not allowed");
             }
+        }
+
+
+        public virtual async Task<List<string>> AllowedActions()
+        {
+            return new List<string>();
         }
     }
 }

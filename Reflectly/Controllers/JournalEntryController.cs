@@ -18,10 +18,23 @@ namespace Reflectly.Controllers
 
         }
 
-        [HttpPut("{id}/activate")]
+        [HttpPut("{id}/submit")]
         public virtual async Task<Model.JournalEntry> Submit(Guid id)
         {
             return await (_service as IJournalEntryService).Submit(id);
+        }
+
+        [HttpPut("{id}/archive")]
+        public virtual async Task<Model.JournalEntry> Archive(Guid id)
+        {
+            return await (_service as IJournalEntryService).Archive(id);
+        }
+
+
+        [HttpGet("{id}/allowedActions")]
+        public virtual async Task<List<string>> AllowedActions(Guid id)
+        {
+            return await (_service as IJournalEntryService).AllowedActions(id);
         }
 
     }

@@ -1,6 +1,7 @@
 using Cqrs.Hosts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Reflectly.Filters;
 using Reflectly.Services;
 using Reflectly.Services.Database;
 using Reflectly.Services.JournalEntryStateMachine;
@@ -18,8 +19,11 @@ builder.Services.AddTransient<InitialJournalEntryState>();
 builder.Services.AddTransient<DraftJournalEntryState>();
 builder.Services.AddTransient<SubmitJournalEntryState>();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers(x =>
+{
+    x.Filters.Add<ErrorFilter>();
+});
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuck le
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

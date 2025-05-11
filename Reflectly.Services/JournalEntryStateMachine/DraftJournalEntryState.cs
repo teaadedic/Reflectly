@@ -9,15 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
+using Microsoft.Extensions.Logging;
 
 namespace Reflectly.Services.JournalEntryStateMachine
 {
     public class DraftJournalEntryState : BaseState
     {
-        public DraftJournalEntryState(IServiceProvider serviceProvder, Database.ReflectlyContext context, IMapper mapper) : base(serviceProvder, context, mapper)
-        {
 
+        protected ILogger<DraftJournalEntryState> _logger;
+
+        public DraftJournalEntryState(ILogger<DraftJournalEntryState> logger, IServiceProvider serviceProvder, Database.ReflectlyContext context, IMapper mapper) : base(serviceProvder, context, mapper)
+        {
+            _logger = logger;
         }
         public async Task<JournalEntry> Update(Guid id, JournalEntryUpdateRequest update)
         {
@@ -30,8 +33,17 @@ namespace Reflectly.Services.JournalEntryStateMachine
             await _context.SaveChangesAsync();
             return _mapper.Map<Model.JournalEntry>(entity);
         }
-        public async Task<JournalEntry> Submit(Guid id)
+
+
+        public override async Task<JournalEntry> Submit(Guid id)
         {
+
+            _logger.LogInformation($" Submiting entry:  {id}");
+
+            _logger.LogWarning($"W: Submiting entry:  {id}");
+
+            _logger.LogError($"E : Submiting entry:  {id}");
+
             var set = _context.Set<Database.JournalEntry>();
 
             var entity = await set.FindAsync(id);
@@ -40,6 +52,16 @@ namespace Reflectly.Services.JournalEntryStateMachine
 
             await _context.SaveChangesAsync();
             return _mapper.Map<Model.JournalEntry>(entity);
+        }
+
+        public override async Task<List<string>> AllowedActions()
+        {
+            var list = await base.AllowedActions();
+
+            list.Add("Update");
+            list.Add("Submit");
+
+            return list;
         }
     }
 }

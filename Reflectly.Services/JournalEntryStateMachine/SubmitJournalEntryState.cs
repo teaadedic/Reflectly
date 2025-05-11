@@ -18,6 +18,28 @@ namespace Reflectly.Services.JournalEntryStateMachine
         {
 
         }
-        
+
+        public override async Task<JournalEntry> Archive(Guid id)
+        {
+                var set = _context.Set<Database.JournalEntry>();
+
+                var entity = await set.FindAsync(id);
+
+                entity.StateMachine = "draft";
+
+                await _context.SaveChangesAsync();
+                return _mapper.Map<Model.JournalEntry>(entity);
+     
+        }
+
+        public override async Task<List<string>> AllowedActions()
+        {
+            var list = await base.AllowedActions();
+
+            list.Add("Archive");
+
+            return list;
+        }
+
     }
 }
