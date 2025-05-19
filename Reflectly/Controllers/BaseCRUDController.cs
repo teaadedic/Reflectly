@@ -8,6 +8,7 @@ namespace Reflectly.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     public class BaseCRUDController<T, TSearch, TInsert, TUpdate> : BaseController<T, TSearch> where T : class where TSearch : class
     {
         public readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service;
@@ -21,6 +22,7 @@ namespace Reflectly.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public virtual async Task<T> Insert([FromBody]TInsert insert)
         {
             return await _service.Insert(insert);

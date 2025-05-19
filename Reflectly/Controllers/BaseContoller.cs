@@ -7,6 +7,7 @@ namespace Reflectly.Controllers
 {
     
     [Route("[controller]")]
+    [Authorize]
 
     public class BaseController<T, TSearch> : ControllerBase where T : class where TSearch : class
     {
