@@ -2,9 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\Reflectly",
+    "\\Reflectly.Model",
     "\\Reflectly.Services",
-    "\\Reflectly.Services\\JournalEntryStateMachine"
+    "\\Reflectly.Services\\bin",
+    "\\Reflectly.Services\\Database",
+    "\\Reflectly.Services\\Migrations",
+    "\\Reflectly.Services\\obj",
+    "\\Reflectly\\Filters",
+    "\\Reflectly\\Properties"
   ],
-  "SelectedNode": "\\Reflectly\\Reflectly.sln",
+  "SelectedNode": "\\Reflectly\\Controllers\\BaseContoller.cs",
   "PreviewInSolutionExplorer": false
 }

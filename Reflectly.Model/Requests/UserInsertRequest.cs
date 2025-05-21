@@ -16,6 +16,9 @@ namespace Reflectly.Model.Requests
         [Required(AllowEmptyStrings = false, ErrorMessage = "Empty filed no allowed")]
         public string Email { get; set; } = null!;
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Empty field not allowed")]
+        public string UserName { get; set; } = null!;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Empty filed no allowed")]
         public string Name { get; set; } = null!;
 

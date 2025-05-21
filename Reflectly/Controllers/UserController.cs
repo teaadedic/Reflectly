@@ -1,24 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Reflectly.Services;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Reflectly.Model.Requests;
 using Reflectly.Model;
+using Reflectly.Model.Requests;
+using Reflectly.Model.SearchObjects;
+using Reflectly.Services;
+using System.Threading.Tasks;
 
 namespace Reflectly.Controllers
 {
-        [ApiController]
-        [Route("[controller]")]
+    [ApiController]
+    [Route("[controller]")]
+    public class UserController : BaseCRUDController<User, BaseSearchObject, UserInsertRequest, UserUpdateRequest>
+    {
+        private readonly IUserService _userService;
 
-        public class UserController : BaseCRUDController<Model.User, Model.SearchObjects.BaseSearchObject, Model.Requests.UserInsertRequest, Model.Requests.UserUpdateRequest>
+        public UserController(ILogger<BaseController<User, BaseSearchObject>> logger, IUserService service)
+            : base(logger, service)
         {
-           
-
-            public UserController(ILogger<BaseController<User, Model.SearchObjects.BaseSearchObject>> logger, IUserService service): base(logger, service)
-            {
-                
-            }
-
-          
-
+            _userService = service;
         }
+
+        // ✅ Dozvoli registraciju bez autentifikacije
+        [AllowAnonymous]
+        [HttpPost]
+        public override Task<User> Insert([FromBody] UserInsertRequest request)
+        {
+            return base.Insert(request);
+        }
+
+        // ✅ Dodaj login endpoint
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
+        {
+            var user = await _userService.Login(request.UserName, request.Password);
+
+            if (user == null)
+                return Unauthorized("Incorrect username or password.");
+
+            return Ok(user);
+        }
+    }
 }

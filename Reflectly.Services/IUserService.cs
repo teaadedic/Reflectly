@@ -11,6 +11,10 @@ namespace Reflectly.Services
     {
         Model.User Insert(UserInsertRequest request);
         Model.User Update(Guid id, UserUpdateRequest request);
+
+        public Task<Model.User> Login(string username, string password);
+       
+
     }
 }
 

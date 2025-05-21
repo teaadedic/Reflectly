@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Options;
 using System.Text.Encodings.Web;
-using Reflectly.Services;
+using System.Security.Claims;
 
 
 
 
-namespace Reflectly
+
+namespace Reflectly.Services
 {
 
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>

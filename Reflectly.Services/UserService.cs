@@ -18,27 +18,25 @@ namespace Reflectly.Services
     public class UserService : BaseCRUDService<Model.User, Database.User, BaseSearchObject, UserInsertRequest, UserUpdateRequest>, IUserService
     {
 
-        ReflectlyContext _context;
-
-        public IMapper _mapper { get; set; }
-
         public UserService(ReflectlyContext context, IMapper mapper)
             :base (context, mapper)
         {
-           
+            
         }
        
-        public override async Task BeforeInsesrt(Database.User entity, UserInsertRequest insert)
+        public override Task BeforeInsert(Database.User entity, UserInsertRequest insert)
         {
             entity.PasswordSalt = GenerateSalt();
             entity.PasswordHash = GenerateHash(entity.PasswordSalt, insert.Password);
+            return Task.CompletedTask;
         }
 
         public static string GenerateSalt()
         {
-            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
+            //RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
             var byteArray = new byte[16];
-            provider.GetBytes(byteArray);
+            RandomNumberGenerator.Fill(byteArray);
+            //provider.GetBytes(byteArray);
 
             return Convert.ToBase64String(byteArray);
         }
@@ -55,6 +53,7 @@ namespace Reflectly.Services
             HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
+
         }
 
         public Model.User Update(int id, UserUpdateRequest request)
@@ -80,6 +79,35 @@ namespace Reflectly.Services
         Model.User IUserService.Update(Guid id, UserUpdateRequest request)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Model.User> Login(string username, string password)
+        {
+            var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserName == username);
+
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var hash = GenerateHash(entity.PasswordSalt, password);
+
+            if (hash != entity.PasswordHash)
+            {
+                return null;
+            }
+
+            return _mapper.Map<Model.User>(entity);
+        }
+
+        public async Task<Model.User?> GetByUsername(string userName)
+        {
+            var entity = await _context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+
+            if (entity == null)
+                return null;
+
+            return _mapper.Map<Model.User>(entity);
         }
     }
 }
