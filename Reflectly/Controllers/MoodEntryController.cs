@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Reflectly.Services;
 using Reflectly.Model;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Reflectly.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
 

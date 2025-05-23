@@ -20,7 +20,8 @@ namespace Reflectly.Controllers
             _userService = service;
         }
 
-        // ✅ Dozvoli registraciju bez autentifikacije
+        
+
         [AllowAnonymous]
         [HttpPost]
         public override Task<User> Insert([FromBody] UserInsertRequest request)
@@ -28,7 +29,6 @@ namespace Reflectly.Controllers
             return base.Insert(request);
         }
 
-        // ✅ Dodaj login endpoint
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserLoginRequest request)

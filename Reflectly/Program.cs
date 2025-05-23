@@ -25,7 +25,12 @@ builder.Services.AddTransient<SubmitJournalEntryState>();
 builder.Services.AddControllers(x =>
 {
     x.Filters.Add<ErrorFilter>();
-});
+})
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuck le
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
