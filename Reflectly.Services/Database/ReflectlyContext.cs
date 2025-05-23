@@ -178,6 +178,11 @@ namespace Reflectly.Services.Database
                     .IsUnicode(false)
                     .HasColumnName("email");
 
+                entity.Property(e => e.UserName)
+                   .HasMaxLength(255)
+                   .IsUnicode(false)
+                   .HasColumnName("userName");
+
                 entity.Property(e => e.Name)
                     .HasMaxLength(255)
                     .IsUnicode(false)

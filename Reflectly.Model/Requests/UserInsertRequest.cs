@@ -27,8 +27,13 @@ namespace Reflectly.Model.Requests
         public DateTime? UpdatedAt { get; set; }
 
         [Compare("PasswordConfirmation", ErrorMessage = "Passwords do not match.")]
+        [Required(ErrorMessage = "Password is required")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", ErrorMessage = "Password must contain uppercase, lowercase and digit")]
         public string Password { get; set; }
 
+
+        [Required(ErrorMessage = "Password confirmation is required")]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string PasswordConfirmation { get; set; }
     }

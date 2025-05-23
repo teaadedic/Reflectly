@@ -79,9 +79,9 @@ C:\Users\PC\Desktop\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Serv
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Services.pdb
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.dll
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\bin\Debug\net6.0\Reflectly.Model.pdb
-C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.CopyComplete
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.dll
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\refint\Reflectly.Services.dll
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.pdb
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.genruntimeconfig.cache
 C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\ref\Reflectly.Services.dll
+C:\Users\PC\Desktop\Reflectly\Reflectly.Services\obj\Debug\net6.0\Reflectly.Services.csproj.CopyComplete

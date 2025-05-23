@@ -3,14 +3,13 @@
     "",
     "\\Reflectly",
     "\\Reflectly.Model",
+    "\\Reflectly.Model\\Requests",
     "\\Reflectly.Services",
-    "\\Reflectly.Services\\bin",
-    "\\Reflectly.Services\\Database",
     "\\Reflectly.Services\\Migrations",
     "\\Reflectly.Services\\obj",
+    "\\Reflectly\\Controllers",
     "\\Reflectly\\Filters",
     "\\Reflectly\\Properties"
   ],
-  "SelectedNode": "\\Reflectly\\Controllers\\BaseContoller.cs",
   "PreviewInSolutionExplorer": false
 }
