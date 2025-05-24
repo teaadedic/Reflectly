@@ -14,6 +14,7 @@ namespace Reflectly.Services
             CreateMap<Database.JournalEntry, Model.JournalEntry>();
             CreateMap<Database.User, Model.User>();
             CreateMap<Database.MoodEntry, Model.MoodEntry>();
+            CreateMap<Database.BreathingExerciseSession, Model.BreathingExerciseSession>();
             CreateMap<Model.Requests.MoodEntryInsertRequest, Database.MoodEntry>();
             CreateMap<Model.Requests.MoodEntryUpdateRequest, Database.MoodEntry>();
             CreateMap<Model.Requests.UserInsertRequest, Database.User>();

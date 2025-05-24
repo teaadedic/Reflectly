@@ -16,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IJournalEntryService, JournalEntryService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IMoodEntryService, MoodEntryService>();
+builder.Services.AddTransient<IBreathingExercisesSessionService, BreathingExercisesSessionService>();
 
 builder.Services.AddTransient<BaseState>();
 builder.Services.AddTransient<InitialJournalEntryState>();
