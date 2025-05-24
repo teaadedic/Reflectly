@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Reflectly",
-    "\\Reflectly.Model",
-    "\\Reflectly.Model\\Requests",
-    "\\Reflectly.Services",
-    "\\Reflectly.Services\\Migrations",
-    "\\Reflectly.Services\\obj",
-    "\\Reflectly\\Controllers",
-    "\\Reflectly\\Filters",
-    "\\Reflectly\\Properties"
+    ""
   ],
+  "SelectedNode": "\\Reflectly.sln",
   "PreviewInSolutionExplorer": false
 }
