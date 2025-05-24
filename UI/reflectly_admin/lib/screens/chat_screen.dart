@@ -50,42 +50,88 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Reflectly Chatbot')),
-      //
+      appBar: AppBar(
+        title: const Text('Reflectly Chatbot'),
+        backgroundColor: Colors.deepPurple,
+        elevation: 2,
+      ),
       backgroundColor: Colors.black,
       body: Column(
         children: [
           Expanded(
             child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
               itemCount: messages.length,
-              itemBuilder:
-                  (context, index) => ListTile(
-                    title: Align(
-                      alignment:
-                          messages[index]['isUser']
-                              ? Alignment.centerRight
-                              : Alignment.centerLeft,
+              itemBuilder: (context, index) {
+                final isUser = messages[index]['isUser'];
+                return Row(
+                  mainAxisAlignment:
+                      isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (!isUser)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 6.0),
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xFF7C4DFF), // lighter purple
+                          child: Icon(Icons.smart_toy, color: Colors.white),
+                          radius: 18,
+                        ),
+                      ),
+                    Flexible(
                       child: Container(
-                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.symmetric(vertical: 4),
+                        padding: const EdgeInsets.all(14),
                         decoration: BoxDecoration(
                           color:
-                              messages[index]['isUser']
-                                  ? Colors.blueAccent
-                                  : Colors.grey[700],
-                          borderRadius: BorderRadius.circular(12),
+                              isUser
+                                  ? Color(
+                                    0xFFB39DDB,
+                                  ) // user bubble: lighter purple
+                                  : Color(
+                                    0xFF4F378B,
+                                  ), // bot bubble: deep purple
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(18),
+                            topRight: const Radius.circular(18),
+                            bottomLeft: Radius.circular(isUser ? 18 : 0),
+                            bottomRight: Radius.circular(isUser ? 0 : 18),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 4,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
                         ),
                         child: Text(
                           messages[index]['message'],
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    if (isUser)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 6.0),
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xFF7C4DFF), // lighter purple
+                          child: Icon(Icons.person, color: Colors.white),
+                          radius: 18,
+                        ),
+                      ),
+                  ],
+                );
+              },
             ),
           ),
+          const Divider(height: 1, color: Colors.white24),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-            color: Colors.deepPurple,
+            color: const Color(0xFF7C4DFF), // lighter purple
             child: Row(
               children: [
                 Expanded(
@@ -93,13 +139,15 @@ class _ChatScreenState extends State<ChatScreen> {
                     controller: _controller,
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
-                      hintText: 'Type a message',
-                      hintStyle: TextStyle(color: Colors.white70),
+                      hintText: 'Type a message...',
+                      hintStyle: TextStyle(color: Colors.white54),
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
+                // Remove the blue circular container, use a black send button
                 IconButton(
-                  icon: const Icon(Icons.send, color: Colors.white),
+                  icon: const Icon(Icons.send, color: Colors.black),
                   onPressed: () {
                     sendMessage(_controller.text);
                     _controller.clear();
@@ -110,6 +158,17 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
+      // ElevatedButton to open ChatScreen
+      // floatingActionButton: ElevatedButton(
+      //   onPressed: () {
+      //     // Navigator.push to ChatScreen
+      //   },
+      //   style: ElevatedButton.styleFrom(
+      //     backgroundColor: Color(0xFFF3ECFF), // light purple
+      //     shape: StadiumBorder(),
+      //   ),
+      //   child: Text('Open Chatbot', style: TextStyle(color: Colors.deepPurple)),
+      // ),
     );
   }
 }

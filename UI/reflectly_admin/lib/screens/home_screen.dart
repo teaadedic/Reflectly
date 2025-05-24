@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:reflectly_admin/screens/chat_screen.dart';
-
+import 'package:reflectly_admin/screens/breathing_exercises_screen.dart';
+import 'package:reflectly_admin/screens/mood_graphs_screen.dart';
+import 'package:reflectly_admin/screens/quotes_screen.dart';
+import 'package:reflectly_admin/screens/notebook_selection_screen.dart';
+import 'package:reflectly_admin/screens/settings_screen.dart';
+import 'package:reflectly_admin/screens/mood_tracking_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,53 +56,95 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const ChatScreen(),
-            ),
-  );
-},
+                    MaterialPageRoute(builder: (context) => const ChatScreen()),
+                  );
+                },
               ),
             ),
           ],
         ),
       ),
       body: SafeArea(
-  child: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const SizedBox(height: 24),
-          GridView.count(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            mainAxisSpacing: 24,
-            crossAxisSpacing: 24,
-            childAspectRatio: 0.95,
-            children: [
-              _HomeCard(image: 'assets/images/journaling.png', label: 'Journaling'),
-              _HomeCard(image: 'assets/images/breathing.png', label: 'Breathing Exercises'),
-              _HomeCard(image: 'assets/images/mood_graphs.png', label: 'Mood Graphs'),
-              _HomeCard(image: 'assets/images/quotes.png', label: 'Quotes'),
-            ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 24),
+                GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 24,
+                  crossAxisSpacing: 24,
+                  childAspectRatio: 0.95,
+                  children: [
+                    _HomeCard(
+                      image: 'assets/images/journaling.png',
+                      label: 'Journaling',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NotebookSelectionScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    _HomeCard(
+                      image: 'assets/images/breathing.png',
+                      label: 'Breathing Exercises',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BreathingExercisesScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    _HomeCard(
+                      image: 'assets/images/mood_graphs.png',
+                      label: 'Mood Graphs',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoodGraphsScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    _HomeCard(
+                      image: 'assets/images/quotes.png',
+                      label: 'Quotes',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuotesScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => const ChatScreen()),
+                //     );
+                //   },
+                //   child: const Text("Open Chatbot"),
+                // ),
+              ],
+            ),
           ),
-          const SizedBox(height: 12),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ChatScreen()),
-              );
-            },
-            child: const Text("Open Chatbot"),
-          ),
-        ],
+        ),
       ),
-    ),
-  ),
-),
 
       bottomNavigationBar: Container(
         color: Colors.black,
@@ -105,17 +152,28 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Left icon with circle background
-            Container(
-              decoration: BoxDecoration(color: purple, shape: BoxShape.circle),
-              padding: const EdgeInsets.all(10),
-              child: Icon(
-                Icons.bar_chart_rounded,
-                color: Colors.black,
-                size: 32,
+            // Mood Tracking icon with navigation
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MoodTrackingScreen()),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: purple,
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Icon(
+                  Icons.bar_chart_rounded,
+                  color: Colors.black,
+                  size: 32,
+                ),
               ),
             ),
-            // Middle icon with rounded square background
+            // Middle icon (no navigation, just for design)
             Container(
               decoration: BoxDecoration(
                 color: purple,
@@ -128,11 +186,22 @@ class HomeScreen extends StatelessWidget {
                 size: 32,
               ),
             ),
-            // Right icon with circle background
-            Container(
-              decoration: BoxDecoration(color: purple, shape: BoxShape.circle),
-              padding: const EdgeInsets.all(10),
-              child: Icon(Icons.settings, color: Colors.black, size: 32),
+            // Settings icon with navigation
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsScreen()),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: purple,
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Icon(Icons.settings, color: Colors.black, size: 32),
+              ),
             ),
           ],
         ),
@@ -144,8 +213,13 @@ class HomeScreen extends StatelessWidget {
 class _HomeCard extends StatelessWidget {
   final String image;
   final String label;
+  final VoidCallback onTap;
 
-  const _HomeCard({required this.image, required this.label});
+  const _HomeCard({
+    required this.image,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +229,7 @@ class _HomeCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: () {},
+        onTap: onTap,
         splashColor: Colors.deepPurple.withOpacity(0.1),
         child: Padding(
           padding: const EdgeInsets.all(14),

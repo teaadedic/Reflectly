@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+*.apk
+*.pdb
+/build/
+/windows/flutter/ephemeral/
+UI/reflectly_admin/build/
+UI/reflectly_admin/windows/flutter/ephemeral/
