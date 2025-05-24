@@ -359,3 +359,11 @@ bin/
 
 # Ignore local configuration
 appsettings.json
+
+
+# Ignore the Dialogflow secret JSON file
+Secrets/
+/Reflectly/Reflectly/Secrets/
+/Reflectly/Reflectly/Secrets/dialog_flow_auth.json
+/Reflectly/Reflectly/Secrets/*.json
+
