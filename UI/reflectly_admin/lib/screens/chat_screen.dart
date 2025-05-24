@@ -50,7 +50,9 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('AMBot')),
+      appBar: AppBar(title: const Text('Your Reflectly Chatbot')),
+      //
+      backgroundColor: Colors.black,
       body: Column(
         children: [
           Expanded(

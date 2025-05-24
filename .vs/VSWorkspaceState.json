@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\UI",
+    "\\UI\\reflectly_admin",
+    "\\UI\\reflectly_admin\\lib",
+    "\\UI\\reflectly_admin\\lib\\screens",
+    "\\UI\\reflectly_admin\\lib\\widgets"
   ],
-  "SelectedNode": "\\Reflectly.sln",
+  "SelectedNode": "\\UI\\reflectly_admin\\lib\\widgets",
   "PreviewInSolutionExplorer": false
 }

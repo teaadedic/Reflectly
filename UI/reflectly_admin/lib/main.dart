@@ -104,7 +104,6 @@ class MyMaterialApp extends StatelessWidget {
     return MaterialApp(
       title: 'Reflectly',
       theme: ThemeData(
-        
         scaffoldBackgroundColor: const Color.fromARGB(131, 7, 2, 18),
       ),
       home: const LoginPage(),
@@ -118,6 +117,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text("Login"),
         backgroundColor: const Color.fromARGB(255, 105, 91, 252),
@@ -221,10 +222,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
