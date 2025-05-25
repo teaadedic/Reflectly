@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Tea\\Reflectly\\Reflectly.Services\\Reflectly.Services.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
         "packagesPath": "C:\\Users\\Tea\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\obj\\",
+=======
+    "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Services\\Reflectly.Services.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj",
+        "projectName": "Reflectly.Model",
+        "projectPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\obj\\",
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Tea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +44,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -71,6 +90,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
         }
       }
@@ -83,12 +103,30 @@
         "projectPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Services\\Reflectly.Services.csproj",
         "packagesPath": "C:\\Users\\Tea\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Services\\obj\\",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Services\\Reflectly.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Services\\Reflectly.Services.csproj",
+        "projectName": "Reflectly.Services",
+        "projectPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Services\\Reflectly.Services.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Services\\obj\\",
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Tea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -97,14 +135,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj": {
                 "projectPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj"
+=======
+              "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj": {
+                "projectPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj"
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
               }
             }
           }
@@ -186,7 +230,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
         }
       }
     }

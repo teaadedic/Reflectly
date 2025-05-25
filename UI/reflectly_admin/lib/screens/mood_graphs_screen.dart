@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MoodGraphsScreen extends StatefulWidget {
-  const MoodGraphsScreen({Key? key}) : super(key: key);
+  const MoodGraphsScreen({super.key});
 
   @override
   State<MoodGraphsScreen> createState() => _MoodGraphsScreenState();
@@ -275,8 +275,9 @@ class _MoodGraphsScreenState extends State<MoodGraphsScreen> {
                             getTitlesWidget: (value, meta) {
                               final moods = moodCounts.keys.toList();
                               if (value.toInt() < 0 ||
-                                  value.toInt() >= moods.length)
+                                  value.toInt() >= moods.length) {
                                 return const SizedBox.shrink();
+                              }
                               final mood = moods[value.toInt()];
                               final emoji = moodEmojis[mood] ?? "";
                               return Center(
@@ -427,8 +428,9 @@ class _MoodGraphsScreenState extends State<MoodGraphsScreen> {
                             "Happy": "😃",
                           };
                           if (value.toInt() < 0 ||
-                              value.toInt() >= moods.length)
+                              value.toInt() >= moods.length) {
                             return const SizedBox.shrink();
+                          }
                           final mood = moods[value.toInt()];
                           final emoji = moodEmojis[mood] ?? "";
                           return Column(

@@ -315,4 +315,9 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788

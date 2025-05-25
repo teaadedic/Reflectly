@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import '../models/mood_entry.dart';
 
 class MoodTrackingScreen extends StatefulWidget {
-  const MoodTrackingScreen({Key? key}) : super(key: key);
+  const MoodTrackingScreen({super.key});
 
   @override
   State<MoodTrackingScreen> createState() => _MoodTrackingScreenState();

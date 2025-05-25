@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'journal_screen.dart';
 
 class NotebookSelectionScreen extends StatefulWidget {
-  const NotebookSelectionScreen({Key? key}) : super(key: key);
+  const NotebookSelectionScreen({super.key});
 
   @override
   State<NotebookSelectionScreen> createState() =>
@@ -12,7 +12,7 @@ class NotebookSelectionScreen extends StatefulWidget {
 
 class _NotebookSelectionScreenState extends State<NotebookSelectionScreen> {
   List<String> _notebooks = [];
-  Set<String> _selectedForDelete = {};
+  final Set<String> _selectedForDelete = {};
   bool _deleteMode = false;
 
   static const List<String> defaultPrompts = [
