@@ -20,6 +20,9 @@ namespace Reflectly.Services.Database
         public string Name { get; set; } = null!;
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public string? FcmToken { get; set; }
+        public bool NotificationsEnabled { get; set; }
+
 
         public virtual ICollection<BreathingExerciseSession> BreathingExerciseSessions { get; set; }
         public virtual ICollection<JournalEntry> JournalEntries { get; set; }

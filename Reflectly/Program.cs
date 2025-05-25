@@ -22,6 +22,7 @@ builder.Services.AddTransient<BaseState>();
 builder.Services.AddTransient<InitialJournalEntryState>();
 builder.Services.AddTransient<DraftJournalEntryState>();
 builder.Services.AddTransient<SubmitJournalEntryState>();
+builder.Services.AddHostedService<ReminderScheduler>();
 
 builder.Services.AddControllers(x =>
 {

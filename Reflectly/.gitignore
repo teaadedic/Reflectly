@@ -359,7 +359,7 @@ bin/
 
 # Ignore local configuration
 appsettings.json
-
+**/serviceAccountKey.json
 
 # Ignore the Dialogflow secret JSON file
 Secrets/

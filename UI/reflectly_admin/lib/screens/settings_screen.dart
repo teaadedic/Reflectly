@@ -5,6 +5,9 @@ import 'package:reflectly_admin/screens/mood_tracking_screen.dart'
     as mood_screen;
 import 'package:reflectly_admin/screens/account_screen.dart';
 import 'package:reflectly_admin/screens/chat_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -18,6 +21,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool reminders = true;
 
   static const purple = Color.fromARGB(255, 108, 104, 243);
+
+  @override
+void initState() {
+  super.initState();
+  _loadPrefs();
+}
+
+Future<void> _loadPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
+  setState(() {
+    notifications = prefs.getBool('notifications') ?? true;
+    reminders = prefs.getBool('reminders') ?? true;
+  });
+}
+
+Future<void> _updateNotificationToggle(bool val) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('notifications', val);
+  setState(() => notifications = val);
+
+  if (val) {
+    final token = await FirebaseMessaging.instance.getToken();
+    print("📲 Notifications ON – FCM Token: $token");
+    // TODO: send token to backend
+  } else {
+    await FirebaseMessaging.instance.deleteToken();
+    print("🔕 Notifications OFF – FCM Token deleted");
+  }
+}
+
+Future<void> _updateReminderToggle(bool val) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('reminders', val);
+  setState(() => reminders = val);
+
+  if (!val) {
+    print("🕒 Reminders disabled (cancel scheduling here)");
+    // TODO: cancel scheduled reminders
+  } else {
+    print("🕒 Reminders enabled (schedule them here)");
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +122,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               trailing: Switch(
                 value: notifications,
                 activeColor: purple,
-                onChanged: (val) => setState(() => notifications = val),
+                onChanged: _updateNotificationToggle,
               ),
             ),
             const SizedBox(height: 16),
@@ -88,7 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               trailing: Switch(
                 value: reminders,
                 activeColor: purple,
-                onChanged: (val) => setState(() => reminders = val),
+                onChanged: _updateReminderToggle,
               ),
             ),
             const SizedBox(height: 16),

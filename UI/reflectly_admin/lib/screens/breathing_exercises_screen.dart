@@ -5,7 +5,7 @@ import 'package:reflectly_admin/screens/home_screen.dart';
 import 'package:reflectly_admin/screens/breathing_player_screen.dart';
 
 class BreathingExercisesScreen extends StatelessWidget {
-  const BreathingExercisesScreen({Key? key}) : super(key: key);
+  const BreathingExercisesScreen({super.key});
 
   static const purple = Color.fromARGB(255, 108, 104, 243);
 
@@ -17,6 +17,7 @@ class BreathingExercisesScreen extends StatelessWidget {
       "pattern": "4-0-4-0",
       "image": "assets/images/breathing1.png",
       "color": Color(0xFFFDF5F3),
+      "audio": "assets/audio/Breathing-3minutes.m4a",
     },
     {
       "title": "Box Breathing",
@@ -25,22 +26,25 @@ class BreathingExercisesScreen extends StatelessWidget {
       "pattern": "4-4-4-4",
       "image": "assets/images/breathing2.png",
       "color": Color(0xFFFDEDF2),
+      "audio": "assets/audio/Breathing-4minutes.m4a",
     },
     {
-      "title": "478 Breathing",
-      "caption": "4-7-8 breathing helps improve sleep.",
+      "title": "Relaxing Breath",
+      "caption": "A calming technique for sleep and relaxation.",
       "duration": "5 minutes",
       "pattern": "4-7-8-0",
       "image": "assets/images/breathing3.png",
-      "color": Color(0xFFF2FBF6),
+      "color": Color(0xFFE7F6F2),
+      "audio": "assets/audio/Breathing-5minutes.m4a",
     },
     {
-      "title": "7-11 Breathing",
-      "caption": "7-11 breathing helps reduce anxiety and promote sleep.",
+      "title": "Resonant Breathing",
+      "caption": "A slow breathing pattern for relaxation.",
       "duration": "7 minutes",
       "pattern": "7-0-11-0",
       "image": "assets/images/breathing4.png",
-      "color": Color(0xFFF6F6FD),
+      "color": Color(0xFFFDF5F3),
+      "audio": "assets/audio/Breathing-7minutes.m4a",
     },
   ];
 
@@ -51,9 +55,6 @@ class BreathingExercisesScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ), // <-- Add this line
         titleSpacing: 0,
         title: Padding(
           padding: const EdgeInsets.only(left: 8.0),
@@ -115,8 +116,8 @@ class BreathingExercisesScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
                           ex["image"],
-                          width: 120, // Increased from 90 to 120
-                          height: 120, // Increased from 90 to 120
+                          width: 120,
+                          height: 120,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -128,7 +129,7 @@ class BreathingExercisesScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            ex["title"],
+                            ex["title"] ?? "",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -137,7 +138,7 @@ class BreathingExercisesScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            ex["caption"],
+                            ex["caption"] ?? "",
                             style: const TextStyle(
                               fontSize: 15,
                               color: Colors.black87,
@@ -159,20 +160,20 @@ class BreathingExercisesScreen extends StatelessWidget {
                                   elevation: 2,
                                 ),
                                 onPressed: () {
-                                  Navigator.of(context).push(
+                                  Navigator.push(
+                                    context,
                                     MaterialPageRoute(
-                                      builder:
-                                          (context) => BreathingPlayerScreen(
-                                            title: ex["title"],
-                                            caption: ex["caption"],
-                                            image: ex["image"],
-                                            duration: ex["duration"],
-                                            pattern: ex["pattern"],
-                                            color: ex["color"],
-                                          ),
+                                      builder: (context) => BreathingPlayerScreen(
+                                        title: ex["title"] ?? "",
+                                        caption: ex["caption"] ?? "",
+                                        image: ex["image"] ?? "",
+                                        duration: ex["duration"] ?? "3 minutes",
+                                        pattern: ex["pattern"] ?? "",
+                                        color: ex["color"] ?? Colors.white,
+                                        audio: ex["audio"],
+                                      ),
                                     ),
-                                  );
-                                },
+                                  );},
                                 child: const Text(
                                   "Start Now",
                                   style: TextStyle(
@@ -183,7 +184,7 @@ class BreathingExercisesScreen extends StatelessWidget {
                               ),
                               const SizedBox(width: 14),
                               Text(
-                                ex["pattern"],
+                                ex["pattern"] ?? "",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -202,7 +203,7 @@ class BreathingExercisesScreen extends StatelessWidget {
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                ex["duration"],
+                                ex["duration"] ?? "",
                                 style: const TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14,

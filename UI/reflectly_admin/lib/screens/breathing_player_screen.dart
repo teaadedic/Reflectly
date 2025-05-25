@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class BreathingPlayerScreen extends StatefulWidget {
   final String title;
@@ -8,16 +9,18 @@ class BreathingPlayerScreen extends StatefulWidget {
   final String duration;
   final String pattern;
   final Color color;
+  final String? audio;
 
   const BreathingPlayerScreen({
-    Key? key,
+    super.key,
     required this.title,
     required this.caption,
     required this.image,
     required this.duration,
     required this.pattern,
     required this.color,
-  }) : super(key: key);
+    this.audio,
+  });
 
   @override
   State<BreathingPlayerScreen> createState() => _BreathingPlayerScreenState();
@@ -29,32 +32,63 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
   Timer? timer;
   int totalSeconds = 0;
   int elapsedSeconds = 0;
+  late AudioPlayer _player;
 
   @override
   void initState() {
     super.initState();
     totalSeconds = _parseDuration(widget.duration);
+    _player = AudioPlayer();
+    _loadAudio();
+
+    _player.playerStateStream.listen((state) {
+      if (state.processingState == ProcessingState.completed) {
+        timer?.cancel();
+        setState(() {
+          isPlaying = false;
+          elapsedSeconds = totalSeconds;
+          progress = 1.0;
+        });
+      }
+    });
+  }
+
+  Future<void> _loadAudio() async {
+    if (widget.audio != null) {
+      try {
+        await _player.setAsset(widget.audio!);
+      } catch (e) {
+        print('Audio load error: $e');
+      }
+    }
   }
 
   @override
   void dispose() {
     timer?.cancel();
+    _player.dispose();
     super.dispose();
   }
 
   int _parseDuration(String duration) {
-    // Expects format like "3 minutes"
     final parts = duration.split(' ');
     if (parts.length >= 2 && int.tryParse(parts[0]) != null) {
       return int.parse(parts[0]) * 60;
     }
-    return 180; // default 3 min
+    return 180;
   }
 
-  void _togglePlay() {
+  void _togglePlay() async {
     if (isPlaying) {
       timer?.cancel();
+      await _player.pause();
     } else {
+      if (elapsedSeconds >= totalSeconds) {
+        elapsedSeconds = 0;
+        progress = 0.0;
+        await _player.seek(Duration.zero);
+      }
+      await _player.play();
       timer = Timer.periodic(const Duration(seconds: 1), (t) {
         setState(() {
           elapsedSeconds++;
@@ -71,10 +105,34 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
     });
   }
 
+  void _restart() async {
+    timer?.cancel();
+    elapsedSeconds = 0;
+    progress = 0.0;
+    isPlaying = false;
+    await _player.seek(Duration.zero);
+    setState(() {});
+  }
+
   String _formatTime(int seconds) {
     final min = seconds ~/ 60;
     final sec = seconds % 60;
-    return "${min}:${sec.toString().padLeft(2, '0')}";
+    return "$min:${sec.toString().padLeft(2, '0')}";
+  }
+
+  String _getDescription(String pattern) {
+    switch (pattern) {
+      case "4-0-4-0":
+        return "Inhale through your nose for 4 seconds, hold your breath for 0 seconds, exhale through your mouth for 4 seconds, and hold your breath for 0 seconds. Repeat.";
+      case "4-4-4-4":
+        return "Inhale through your nose for 4 seconds, hold your breath for 4 seconds, exhale through your mouth for 4 seconds, and hold your breath for 4 seconds. Repeat.";
+      case "4-7-8-0":
+        return "Inhale through your nose for 4 seconds, hold your breath for 7 seconds, exhale through your mouth for 8 seconds, and hold your breath for 0 seconds. Repeat.";
+      case "7-0-11-0":
+        return "Inhale through your nose for 7 seconds, hold your breath for 0 seconds, exhale through your mouth for 11 seconds, and hold your breath for 0 seconds. Repeat.";
+      default:
+        return "Breathe in deeply and exhale slowly. Repeat.";
+    }
   }
 
   @override
@@ -142,6 +200,16 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 10),
+                Text(
+                  _getDescription(widget.pattern),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54,
+                    height: 1.4,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 36),
                 // Centered play/pause button
                 Center(
@@ -157,7 +225,7 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                // Progress bar and time
+                // Progress bar andtime
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: Column(
@@ -232,19 +300,12 @@ class _BreathingPlayerScreenState extends State<BreathingPlayerScreen> {
                   ),
                 ),
                 const SizedBox(height: 18),
-                // Restart button centered below progress bar
+                // Replay button centered below progress bar
                 Center(
                   child: IconButton(
                     icon: Icon(Icons.replay, color: Colors.grey[400], size: 32),
-                    onPressed: () {
-                      setState(() {
-                        elapsedSeconds = 0;
-                        progress = 0.0;
-                        isPlaying = false;
-                        timer?.cancel();
-                      });
-                    },
-                    tooltip: "Restart",
+                    onPressed: _restart,
+                    tooltip: "Replay",
                   ),
                 ),
               ],
