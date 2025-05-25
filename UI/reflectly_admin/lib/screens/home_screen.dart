@@ -8,7 +8,7 @@ import 'package:reflectly_admin/screens/settings_screen.dart';
 import 'package:reflectly_admin/screens/mood_tracking_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

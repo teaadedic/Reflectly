@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
 class MyAppBar extends StatelessWidget {
   final String title;
-  const MyAppBar({Key? key, required this.title}) : super(key: key);
+  const MyAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class MyAppBar extends StatelessWidget {
 }
 
 class Counter extends StatefulWidget {
-  const Counter({Key? key}) : super(key: key);
+  const Counter({super.key});
 
   @override
   State<Counter> createState() => _CounterState();
@@ -62,7 +62,7 @@ class _CounterState extends State<Counter> {
 }
 
 class LayoutExamples extends StatelessWidget {
-  const LayoutExamples({Key? key}) : super(key: key);
+  const LayoutExamples({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class LayoutExamples extends StatelessWidget {
 }
 
 class MyMaterialApp extends StatelessWidget {
-  const MyMaterialApp({Key? key}) : super(key: key);
+  const MyMaterialApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class MyMaterialApp extends StatelessWidget {
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -193,22 +193,22 @@ class LoginPage extends StatelessWidget {
                 );
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith<Color>((
-                  Set<MaterialState> states,
+                backgroundColor: WidgetStateProperty.resolveWith<Color>((
+                  Set<WidgetState> states,
                 ) {
-                  if (states.contains(MaterialState.pressed)) {
+                  if (states.contains(WidgetState.pressed)) {
                     return Color.fromARGB(255, 108, 104, 243);
                   }
-                  if (states.contains(MaterialState.hovered)) {
+                  if (states.contains(WidgetState.hovered)) {
                     return Color.fromARGB(255, 108, 104, 243);
                   }
                   return Color.fromARGB(255, 108, 104, 243);
                 }),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                padding: MaterialStateProperty.all<EdgeInsets>(
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                padding: WidgetStateProperty.all<EdgeInsets>(
                   const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),

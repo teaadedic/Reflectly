@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Reflectly",
+    "\\UI",
+    "\\UI\\reflectly_admin",
+    "\\UI\\reflectly_admin\\android",
+    "\\UI\\reflectly_admin\\android\\app",
+    "\\UI\\reflectly_admin\\android\\app\\src",
+    "\\UI\\reflectly_admin\\assets",
+    "\\UI\\reflectly_admin\\lib",
+    "\\UI\\reflectly_admin\\lib\\screens"
+  ],
+  "SelectedNode": "\\Reflectly\\.gitignore",
+  "PreviewInSolutionExplorer": false
+}

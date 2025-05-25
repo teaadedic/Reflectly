@@ -10,7 +10,7 @@ final List<String> imagePaths = [
 ];
 
 class QuotesScreen extends StatefulWidget {
-  const QuotesScreen({Key? key}) : super(key: key);
+  const QuotesScreen({super.key});
 
   @override
   State<QuotesScreen> createState() => _QuotesScreenState();

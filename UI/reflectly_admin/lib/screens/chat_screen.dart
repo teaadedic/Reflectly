@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  const ChatScreen({super.key});
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -73,9 +73,9 @@ class _ChatScreenState extends State<ChatScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 6.0),
                         child: CircleAvatar(
-                          backgroundColor: Color(0xFF7C4DFF), // lighter purple
+                          backgroundColor: Color(0xFF7C4DFF),
+                          radius: 18, // lighter purple
                           child: Icon(Icons.smart_toy, color: Colors.white),
-                          radius: 18,
                         ),
                       ),
                     Flexible(
@@ -118,9 +118,9 @@ class _ChatScreenState extends State<ChatScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 6.0),
                         child: CircleAvatar(
-                          backgroundColor: Color(0xFF7C4DFF), // lighter purple
+                          backgroundColor: Color(0xFF7C4DFF),
+                          radius: 18, // lighter purple
                           child: Icon(Icons.person, color: Colors.white),
-                          radius: 18,
                         ),
                       ),
                   ],

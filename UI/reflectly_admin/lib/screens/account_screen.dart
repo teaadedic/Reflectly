@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AccountScreen extends StatefulWidget {
   static const purple = Color.fromARGB(255, 108, 104, 243);
 
+  const AccountScreen({super.key});
+
   @override
   State<AccountScreen> createState() => _AccountScreenState();
 }
@@ -156,13 +158,13 @@ class EditProfileScreen extends StatefulWidget {
   final String email;
 
   const EditProfileScreen({
-    Key? key,
+    super.key,
     required this.name,
     required this.username,
     required this.gender,
     required this.phone,
     required this.email,
-  }) : super(key: key);
+  });
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();

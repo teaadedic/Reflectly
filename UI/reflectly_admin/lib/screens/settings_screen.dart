@@ -7,7 +7,7 @@ import 'package:reflectly_admin/screens/account_screen.dart';
 import 'package:reflectly_admin/screens/chat_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -180,8 +180,8 @@ class _SettingsCard extends StatelessWidget {
     required this.purple,
     this.trailing,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

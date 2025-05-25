@@ -4,8 +4,7 @@ import 'package:intl/intl.dart';
 
 class JournalScreen extends StatefulWidget {
   final String notebookTitle;
-  const JournalScreen({Key? key, required this.notebookTitle})
-    : super(key: key);
+  const JournalScreen({super.key, required this.notebookTitle});
 
   static const purple = Color.fromARGB(255, 108, 104, 243);
 
@@ -47,7 +46,7 @@ class _JournalScreenState extends State<JournalScreen> {
     String today = DateFormat('yyyy-MM-dd').format(DateTime.now());
     if (lastDate != today) {
       String now = DateFormat('MMMM d, yyyy – HH:mm').format(DateTime.now());
-      savedText = (savedText ?? '') + '\n\n$now\n';
+      savedText = '${savedText ?? ''}\n\n$now\n';
       await _prefs.setString(_lastDateKey, today);
       await _prefs.setString(_journalKey, savedText);
     }
@@ -183,8 +182,7 @@ class _JournalScreenState extends State<JournalScreen> {
                           selectedPrompt = index;
                           if (!_controller.text.contains(moodPrompts[index])) {
                             _controller.text +=
-                                (_controller.text.isEmpty ? "" : "\n") +
-                                "${moodPrompts[index]} ";
+                                "${_controller.text.isEmpty ? "" : "\n"}${moodPrompts[index]} ";
                             _controller.selection = TextSelection.fromPosition(
                               TextPosition(offset: _controller.text.length),
                             );

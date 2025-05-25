@@ -31,13 +31,14 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.2.2
-  fl_chart: ^0.63.0
+  fl_chart: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   intl: ^0.20.2
   image_picker: ^1.1.2
+  just_audio: ^0.10.3
 
 dev_dependencies:
   flutter_test:
@@ -61,4 +62,8 @@ flutter:
   assets:
     - assets/images/
     - assets/quotes.json
+    - assets/audio/Breathing-3minutes.m4a
+    - assets/audio/Breathing-4minutes.m4a
+    - assets/audio/Breathing-5minutes.m4a
+    - assets/audio/Breathing-7minutes.m4a
 
