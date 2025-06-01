@@ -120,6 +120,7 @@ class _NotebookSelectionScreenState extends State<NotebookSelectionScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
+        centerTitle: true,
         title: const Text(
           "My Notebooks",
           style: TextStyle(
@@ -128,7 +129,12 @@ class _NotebookSelectionScreenState extends State<NotebookSelectionScreen> {
             fontSize: 22,
           ),
         ),
-        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.of(context).maybePop();
+          },
+        ),
         actions: [
           if (_deleteMode)
             Row(
@@ -267,8 +273,7 @@ class _NotebookSelectionScreenState extends State<NotebookSelectionScreen> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder:
-                                (context) =>
-                                    JournalScreen(notebookTitle: notebook),
+                                (context) => const NotebookSelectionScreen(),
                           ),
                         );
                       },

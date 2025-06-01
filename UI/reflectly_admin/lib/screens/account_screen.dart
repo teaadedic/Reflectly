@@ -64,7 +64,7 @@ class _AccountScreenState extends State<AccountScreen> {
         backgroundColor: Colors.black,
         elevation: 0,
         title: const Text(
-          "Profile",
+          "Account", // Changed from "Profile" to "Account"
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -79,70 +79,132 @@ class _AccountScreenState extends State<AccountScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
         children: [
-          const SizedBox(height: 18),
+          const SizedBox(height: 10),
+          // Profile Avatar
           Center(
-            child: Column(
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
+            child: Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [AccountScreen.purple, Colors.white12],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  username,
-                  style: const TextStyle(color: Colors.white70, fontSize: 16),
+              ),
+              child: CircleAvatar(
+                radius: 48,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.person,
+                  size: 60,
+                  color: AccountScreen.purple,
                 ),
-              ],
+              ),
             ),
           ),
-          const SizedBox(height: 24),
-          Material(
-            color: AccountScreen.purple.withOpacity(0.13),
-            borderRadius: BorderRadius.circular(16),
-            child: ListTile(
-              leading: Icon(Icons.edit, color: AccountScreen.purple),
-              title: const Text(
-                "Edit Profile",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              trailing: const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white54,
-                size: 18,
-              ),
-              onTap: () async {
-                final result = await Navigator.of(
-                  context,
-                ).push<Map<String, String>>(
-                  MaterialPageRoute(
-                    builder:
-                        (context) => EditProfileScreen(
-                          name: name,
-                          username: username,
-                          gender: gender,
-                          phone: phone,
-                          email: email,
-                        ),
-                  ),
-                );
-                if (result != null) {
-                  _updateProfile(
-                    name: result['name']!,
-                    username: result['username']!,
-                    gender: result['gender']!,
-                    phone: result['phone']!,
-                    email: result['email']!,
-                  );
-                }
-              },
+          const SizedBox(height: 18),
+          // Profile Card
+          Card(
+            color: Colors.grey[900],
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
             ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
+              child: Column(
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    "@$username",
+                    style: const TextStyle(color: Colors.white70, fontSize: 16),
+                  ),
+                  const SizedBox(height: 18),
+                  Divider(color: Colors.white12, thickness: 1),
+                  _profileRow(Icons.person_outline, "Gender", gender),
+                  Divider(color: Colors.white12, thickness: 1),
+                  _profileRow(Icons.phone, "Phone", phone),
+                  Divider(color: Colors.white12, thickness: 1),
+                  _profileRow(Icons.email_outlined, "Email", email),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 28),
+          // Edit Profile Button
+          ElevatedButton.icon(
+            icon: Icon(Icons.edit, color: Colors.white),
+            label: const Text(
+              "Edit Profile",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AccountScreen.purple,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+            ),
+            onPressed: () async {
+              final result = await Navigator.of(
+                context,
+              ).push<Map<String, String>>(
+                MaterialPageRoute(
+                  builder:
+                      (context) => EditProfileScreen(
+                        name: name,
+                        username: username,
+                        gender: gender,
+                        phone: phone,
+                        email: email,
+                      ),
+                ),
+              );
+              if (result != null) {
+                _updateProfile(
+                  name: result['name']!,
+                  username: result['username']!,
+                  gender: result['gender']!,
+                  phone: result['phone']!,
+                  email: result['email']!,
+                );
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _profileRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          Icon(icon, color: AccountScreen.purple, size: 20),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(color: Colors.white70, fontSize: 14),
+            ),
+          ),
+          Text(
+            value,
+            style: const TextStyle(color: Colors.white, fontSize: 14),
           ),
         ],
       ),
