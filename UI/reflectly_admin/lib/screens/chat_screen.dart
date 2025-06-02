@@ -15,7 +15,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   List<Map<String, dynamic>> messages = [];
 
   // Replace this with your backend endpoint
-  final String backendUrl = 'http://192.168.1.2:5000/api/Chatbot/message';
+  final String backendUrl = 'http://10.0.2.2:5000/api/Chatbot/message';
 
   void sendMessage(String text) async {
     if (text.isEmpty) return;

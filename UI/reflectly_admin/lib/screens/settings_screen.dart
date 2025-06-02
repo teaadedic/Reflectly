@@ -225,7 +225,6 @@ class _SettingsCard extends StatelessWidget {
     required this.purple,
     this.trailing,
     this.onTap,
-    super.key,
   });
 
   @override

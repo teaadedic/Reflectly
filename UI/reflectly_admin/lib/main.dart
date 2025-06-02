@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:reflectly_admin/screens/home_screen.dart';
+import 'package:reflectly_admin/services/auth_service.dart'; 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+
+
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -133,8 +137,24 @@ class MyMaterialApp extends StatelessWidget {
   }
 }
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService authService = AuthService();
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +185,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const TextField(
+              child: TextField(
+                controller: usernameController,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   labelText: 'Username',
@@ -188,7 +209,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const TextField(
+              child: TextField(
+                controller: passwordController,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   labelText: 'Password',
@@ -199,10 +221,22 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+              onPressed: () async{
+                final success = await authService.login(
+                  usernameController.text,
+                  passwordController.text,
                 );
+                if (success) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Login failed. Please try again.")),
+                    
+                  );
+                }
+                
               },
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.resolveWith<Color>((
@@ -262,9 +296,35 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-// SignUpPage widget
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordConfController = TextEditingController();
+
+  final AuthService authService = AuthService();
+
+  // Add a focus node for the email field
+  final FocusNode emailFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    fullNameController.dispose();
+    emailController.dispose();
+    usernameController.dispose();
+    passwordConfController.dispose();
+    passwordController.dispose();
+    emailFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -308,7 +368,8 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const TextField(
+                child: TextField(
+                  controller: fullNameController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     labelText: 'Full Name',
@@ -317,7 +378,8 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              // Email
+
+              // Username     
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 32),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -332,7 +394,33 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const TextField(
+                child: TextField(
+                  controller: usernameController,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    labelText: 'Username',
+                    prefixIcon: Icon(Icons.person_outline),
+                  ),
+                ),
+              ),    
+              const SizedBox(height: 16),
+              // Email with KeyboardListener
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                controller: emailController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     labelText: 'Email',
@@ -356,11 +444,41 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const TextField(
+                child: TextField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: Icon(
+                      Icons.visibility,
+                      color: Color.fromARGB(255, 122, 101, 255),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  controller: passwordConfController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    labelText: 'PasswordConfirmation',
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: Icon(
                       Icons.visibility,
@@ -375,7 +493,27 @@ class SignUpPage extends StatelessWidget {
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 32),
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async{
+                      if (passwordController.text != passwordConfController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Passwords do not match")),
+                        );
+                        return; // Stop the function if passwords don't match
+                      }
+                      final success = await authService.register(
+                        fullNameController.text,
+                        usernameController.text,
+                        emailController.text,
+                        passwordController.text,
+                        passwordConfController.text,
+                      );
+                       if (success) {
+                        Navigator.of(context).pop();
+                      } else {
+                         ScaffoldMessenger.of(context).showSnackBar(
+                         SnackBar(content: Text('Registration failed')),
+                        );
+                      } 
                       // Handle registration logic
                     },
                     style: ElevatedButton.styleFrom(

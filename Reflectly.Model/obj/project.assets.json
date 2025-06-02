@@ -312,39 +312,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Tea\\.nuget\\packages\\": {},
-=======
     "C:\\Users\\PC\\.nuget\\packages\\": {},
->>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\pos_ver\\Reflectly.Model\\Reflectly.Model.csproj",
       "projectName": "Reflectly.Model",
-      "projectPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\Reflectly.Model.csproj",
-      "packagesPath": "C:\\Users\\Tea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tea\\Reflectly\\Reflectly.Model\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj",
-      "projectName": "Reflectly.Model",
-      "projectPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\Reflectly.Model.csproj",
+      "projectPath": "C:\\Users\\PC\\Desktop\\pos_ver\\Reflectly.Model\\Reflectly.Model.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\reflectly_\\Reflectly.Model\\obj\\",
->>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
+      "outputPath": "C:\\Users\\PC\\Desktop\\pos_ver\\Reflectly.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\Tea\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -371,8 +355,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net6.0": {
@@ -394,16 +377,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
->>>>>>> 1507acc37de10edb824749cc25739f82b3a5c788
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.313\\RuntimeIdentifierGraph.json"
       }
     }
   }
